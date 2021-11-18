@@ -1,8 +1,11 @@
 package com.example.petstore;
 
 import com.example.petstore.datamodels.Category;
+import com.example.petstore.datamodels.Pet;
+import com.example.petstore.datamodels.PetStatus;
 import com.example.petstore.datamodels.Tag;
 import com.example.petstore.repositories.CategoryRepo;
+import com.example.petstore.repositories.PetRepo;
 import com.example.petstore.repositories.TagRepo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,11 +25,15 @@ public class PetStoreApplication {
     public static void generateData(ConfigurableApplicationContext context) {
         CategoryRepo categoryRepo = context.getBean(CategoryRepo.class);
         TagRepo tagRepo = context.getBean(TagRepo.class);
+        PetRepo petRepo = context.getBean(PetRepo.class);
 
         categoryRepo.saveAll(getCategories())
                 .forEach(System.out::println);
 
         tagRepo.saveAll(getTags())
+                .forEach(System.out::println);
+
+        petRepo.saveAll(createPets())
                 .forEach(System.out::println);
 
     }
@@ -66,6 +73,23 @@ public class PetStoreApplication {
                 new Tag().setName("adult"),
                 new Tag().setName("senior")
         );
+
+
+    }
+
+    public static List<Pet> createPets() {
+
+        return List.of(
+
+                new Pet().setName("Nero")
+                        .setStatus(PetStatus.SOLD),
+                new Pet().setName("Tosca")
+                        .setStatus(PetStatus.SOLD),
+                new Pet().setName("Homer")
+                        .setStatus(PetStatus.PENDING),
+                new Pet().setName("Marge")
+                        .setStatus(PetStatus.AVAILABLE));
+
 
     }
 
