@@ -4,7 +4,6 @@ import com.example.petstore.datamodels.Category;
 import com.example.petstore.datamodels.Tag;
 import com.example.petstore.repositories.CategoryRepo;
 import com.example.petstore.repositories.TagRepo;
-import org.hibernate.id.Configurable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -16,7 +15,7 @@ public class PetStoreApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(PetStoreApplication.class, args);
-    generateData(context);
+        generateData(context);
     }
 
 
