@@ -1,6 +1,6 @@
 package com.example.petstore.controller;
 
-import com.example.petstore.service.User;
+import com.example.petstore.datamodels.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ public class UserController {
     public ResponseEntity<User> getUser(String id) {
         if ("1".equals(id)) {
             User user = new User();
-            user.setId(1);
+           // user.setId();
             user.setLastName("Nani");
             return ResponseEntity.ok(user);
 
