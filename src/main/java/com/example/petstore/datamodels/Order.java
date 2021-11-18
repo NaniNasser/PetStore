@@ -4,21 +4,20 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 
 @Data
 @Entity
 @Accessors(chain = true)
+@Table(name = "orders")
 public class Order {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private long petID;
-    private long quantity;
+    private Integer petID;
+    private Integer quantity;
     private LocalDateTime shipDate;
 
     @Enumerated(EnumType.STRING)

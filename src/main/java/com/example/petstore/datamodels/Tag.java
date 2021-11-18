@@ -1,15 +1,15 @@
 package com.example.petstore.datamodels;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.List;
 
 @Entity
 @Data
+@Accessors(chain = true)
 public class Tag {
 
      @Id

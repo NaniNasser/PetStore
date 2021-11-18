@@ -36,7 +36,7 @@ public class PetController {
         }
         else{
             petRepo.save(pet);
-            return ResponseEntity.ok(new ApiResponse(200, "OK", "Pet saved to database"));
+            return ResponseEntity.ok(new ApiResponse(200, "OK", "Pet updated to the database"));
         }
 
     }

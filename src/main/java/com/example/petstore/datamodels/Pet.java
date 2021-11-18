@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.Subselect;
 
 import javax.persistence.*;
 import java.util.List;
