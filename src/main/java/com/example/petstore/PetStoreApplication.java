@@ -4,9 +4,9 @@ import com.example.petstore.datamodels.Category;
 import com.example.petstore.datamodels.Pet;
 import com.example.petstore.datamodels.PetStatus;
 import com.example.petstore.datamodels.Tag;
-import com.example.petstore.repositories.CategoryRepo;
-import com.example.petstore.repositories.PetRepo;
-import com.example.petstore.repositories.TagRepo;
+import com.example.petstore.repositories.CategoryDAO;
+import com.example.petstore.repositories.PetDAO;
+import com.example.petstore.repositories.TagDAO;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -23,17 +23,17 @@ public class PetStoreApplication {
 
 
     public static void generateData(ConfigurableApplicationContext context) {
-        CategoryRepo categoryRepo = context.getBean(CategoryRepo.class);
-        TagRepo tagRepo = context.getBean(TagRepo.class);
-        PetRepo petRepo = context.getBean(PetRepo.class);
+        CategoryDAO categoryDAO = context.getBean(CategoryDAO.class);
+        TagDAO tagDAO = context.getBean(TagDAO.class);
+        PetDAO petDAO = context.getBean(PetDAO.class);
 
-        categoryRepo.saveAll(getCategories())
+        categoryDAO.saveAll(getCategories())
                 .forEach(System.out::println);
 
-        tagRepo.saveAll(getTags())
+        tagDAO.saveAll(getTags())
                 .forEach(System.out::println);
 
-        petRepo.saveAll(createPets())
+        petDAO.saveAll(createPets())
                 .forEach(System.out::println);
 
     }
