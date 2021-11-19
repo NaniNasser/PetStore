@@ -16,7 +16,7 @@ import java.util.Optional;
 public class PetController {
 
     @Autowired
-    private PetDAO petDAO;
+    PetDAO petDAO;
 
     @PostMapping
     public ResponseEntity<ApiResponse> postPet(@RequestBody Pet pet) {
